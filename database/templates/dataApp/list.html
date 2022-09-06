@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Student list</title>
+	<link rel="stylesheet" type="text/css" href="{% static '/dataApp/list.css' %}">
+	 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+</head>
+<body>
+	<p><a href="{% url 'home' %}"><span class="icon"><i class="fas fa-home"></i></span>Home</a></p>
+	<div style="overflow-x: auto;">
+		<table>
+			<th>No.</th>
+			<th>NAME</th>
+			<th>GENDER</th>
+			<th>KCPE YEAR</th>
+			<!-- <th>KCPE MARKS</th> -->
+			<th>KCPE GRADE</th>
+			<th>COUNTY</th>
+			{% for list in students %}
+			<tr>
+				<td>0{{forloop.counter}}.</td>
+				<td class="name">{{list.name}}</td>
+				<td>{{list.gender}}</td>
+				<td>{{list.kcpe_years}}</td>
+				<td>
+					{% if list.kcpe_marks >= 400 and list.kcpe_marks <= 500 %}
+					<p>A</p>
+					{% elif list.kcpe_marks >= 375 and list.kcpe_marks < 400  %}
+					<p>A-</p>
+					{% elif list.kcpe_marks >= 350 and list.kcpe_marks < 375  %}
+					<p>B+</p>
+					{% elif list.kcpe_marks >= 325 and list.kcpe_marks < 350  %}
+					<p>B</p>
+					{% elif list.kcpe_marks >= 300 and list.kcpe_marks < 325  %}
+					<p>B-</p>
+					{% elif list.kcpe_marks >= 275 and list.kcpe_marks < 300  %}
+					<p>C+</p>
+					{% elif list.kcpe_marks >= 250 and list.kcpe_marks < 275  %}
+					<p>C</p>
+					{% elif list.kcpe_marks >= 225 and list.kcpe_marks < 250  %}
+					<p>C-</p>
+					{% elif list.kcpe_marks >= 200 and list.kcpe_marks < 225  %}
+					<p>D+</p>
+					{% elif list.kcpe_marks >= 175 and list.kcpe_marks < 200  %}
+					<p>D</p>
+					{% elif list.kcpe_marks >= 150 and list.kcpe_marks < 175  %}
+					<p>D-</p>
+					{% elif list.kcpe_marks >= 0 and list.kcpe_marks < 150  %}
+					<p>E</p>
+					{% else %}
+					<small>Invalid grade due to invalid marks</small>
+					{%endif%}
+				</td>
+				<td class="name">{{list.county}}</td>
+				
+			</tr>
+			{% endfor %}
+		</table>
+	</div>
+	
+	<p><a href="{% url 'register' %}">Add student</a></p>
+</body>
+</html>

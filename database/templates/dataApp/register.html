@@ -1,0 +1,69 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Register page</title>
+	<link rel="stylesheet" type="text/css" href="{% static '/dataApp/login.css' %}">
+	 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+</head>
+<body>
+	<p><a href="{% url 'home' %}"><span class="icon"><i class="fas fa-home"></i></span>Home</a></p>
+	<div class="pagel">
+		<form method="POST" action="">
+			{% csrf_token %}
+			<div class="tittle">
+				<center><h3 class="studi">STUDENT'S <br> REGISTRATION FORM</h3></center>
+			</div>
+			<hr>
+			<!-- <div class="details">
+				<label>Student's name</label>
+				<input type="text" name="name" placeholder="Enter your full name">
+			</div>
+			<div class="details">
+				<label>DOB</label>
+				<input type="date" name="dob" placeholder="Enter your name">
+			</div>
+			<div class="details">
+				<label>KCPE marks</label>
+				<input type="number" name="marks" placeholder="Enter your kcpe marks">
+			</div>
+
+			<div class="details">
+				<label>KCPE Year</label>
+				<input type="number" name="year" placeholder="Enter your kcpe year">
+			</div>
+			<div class="details">
+				<label>County</label>
+				<input type="text" name="marks" placeholder="Enter your county">
+			</div>
+			<div class="details">
+				<label for="">Gender:</label>
+				<input type="radio" value="Male" name="gen" class="gen" required>Male <input type="radio" value="Female" name="gen" class="gen" required>Female
+			</div>
+			<div class="details">
+				<label>Class/Form</label>
+				<select name="user" id="user">
+	                <option value="1" hidden>.....Your level....</option>
+	                <option value="2" name="user" id="user">Form One(1)</option>
+	                <option value="3" name="user" id="user">Form Two(2)</option>
+	                <option value="4" name="user" id="user">Form Three(3)</option>
+	                <option value="5" name="user" id="user">Form Four(4)</option>
+	            </select>
+	           </div>
+			<div class="details">
+				<label>Your Index</label>
+				<input type="password" name="password" placeholder="Enter your index no.">
+			</div> -->
+			{{form.as_p}}
+			<div>
+				<button type="submit" name="submit" id="sbt">Submit</button>
+			</div>
+		</form>
+		<h3>Already have an account <a href="{% url 'login' %}">Login</a></h3>
+	</div>
+	
+
+</body>
+</html>

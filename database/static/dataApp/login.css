@@ -1,0 +1,110 @@
+
+
+.pagel{
+	background-color: #302399;
+	font-family: 'Roboto', sans-serif;
+	font-size: 23px;
+	/*text-align: center;*/
+	padding-left: 10px;
+	border: 4px #F523A5 groove;
+	border-radius: 15px;
+	margin: 0% 30%;
+	color: #FEFCFF;
+}
+
+.tittle{
+	color: #61BBFE;
+	border-radius: 15px;
+}
+.pagel a {
+	text-decoration: none;
+	color: #CB5554;
+
+}
+
+pagel a:hover {
+	color: #C3C3D6;
+}
+
+form {
+	font-size: 20px;
+
+}
+
+.details {
+	padding-top: 15px;
+}
+
+input,
+select {
+	border-radius: 10px;
+	background-color: saddlebrown;
+	border: none;
+	font-size: 19px;
+	padding: 5px;
+	margin: 10px 0px;
+	/*width: 50%;*/
+}
+
+input[type=radio]{
+	display:inline-block;
+}
+
+option {
+	cursor: pointer;
+}
+
+input:focus{
+	outline: 4px solid; darkslategrey;
+}
+
+
+hr {
+	color: indianred;
+
+}
+
+ button{
+    background-color: #4CAF50;
+    width: 150px;
+    color: black;
+    padding: 15px;
+    font-size: 20px;
+    margin: 10px 0px;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    border-radius: 20px;
+    align-content: center;
+  }
+ button:hover{
+      background-color: lightcyan;
+      color: green;
+  }
+
+a {
+	text-decoration: none;
+	color: #0d2350;
+	/*background-color: #0d23;*/
+}
+
+a:hover {
+	color: deepskyblue;
+}
+
+span {
+	font-size: 35px;
+	color: #0d2;
+}
+
+@media only screen and (max-width: 900px) {
+	.pagel {
+		margin: 0%;
+		width: 95%;
+	}
+
+	.input {
+		/**/
+	}
+}
