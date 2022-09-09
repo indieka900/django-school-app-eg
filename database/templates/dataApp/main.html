@@ -1,0 +1,20 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Esibeye</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+	<!-- <link rel="stylesheet" type="text/css" href="{% static '/dataApp/list.css' %}"> -->
+</head>
+<body>
+	<center><h2>High School </h2></center>
+	<p><a href="{% url 'home' %}"><span class="icon"><i class="fas fa-home"></i></span>Home</a></p>
+	<a href="{{request.META.HTTP_REFERER}}">back</a>
+	{% block content %}
+
+
+	{% endblock %}
+</body>
+</html>

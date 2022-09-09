@@ -29,12 +29,13 @@ GENDER_CHOICES = [
 
 class Student(models.Model):
 	name = models.CharField(max_length=60)
-	#dob = models.DateTimeField(null=False)
+	updated = models.DateTimeField(auto_now = True)
 	joined = models.DateTimeField(auto_now_add=True, null=True)
 	county = models.CharField(max_length=20, default='Vihiga')
 	gender = models.CharField(choices=GENDER_CHOICES, default='Male', max_length=10)
-	kcpe_years = models.IntegerField(default='')
+	kcpe_year = models.IntegerField(default='')
 	kcpe_marks = models.IntegerField(default='')
+	pic = models.ImageField(upload_to='images', default='')
 	form = models.CharField(max_length=15,default='Form One(1)',choices=CLASSES)
 	password = models.CharField(max_length=25,default='')
 	#joined = models.DateField(aut)

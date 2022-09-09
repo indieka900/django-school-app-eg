@@ -1,0 +1,53 @@
+{% extends 'dataApp/main.html' %}
+
+{% block content %}
+{% load static %}
+
+<br>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Student list</title>
+	<link rel="stylesheet" type="text/css" href="{% static '/dataApp/profile.css' %}">
+	 
+</head>
+<div class="divmain">
+	<div class="dis">
+		<div><a class="delete" href="{% url 'updateStudi' persons.id %}">Edit</a></div>
+		<div><a class="delete" href="{% url 'deleteStudi' persons.id %}">Delete</a></div>
+	</div>
+	
+	<center>
+		<div class="imge">
+		{% if persons.pic %}
+		<img src="{{persons.pic.url}}" alt="{{persons.name}}'s picture profile">
+		{% else %}
+		<br>
+		<i style="width:100%;" class="fas fa-user-tie"></i>
+		<!-- <section><img src="{{persons.pic}}" alt="{{persons.name}}'s  profile picture not yet aploaded"></section> -->
+		{% endif %}
+		</div>
+		<h2>{{persons.name.upper}}</h2>
+		<i><small>Student at high school</small></i>
+	</center>
+	<div class="info">
+		<div class="details">
+			<p>
+			Welcome you've visited {{persons.name.capitalize}}'s page</p>
+			Do you want to <a href="{% url 'deleteStudi' persons.id %}">Delete</a> this person
+		</div>
+		<div class="details1" style="overflow-y: auto;">
+			<h3 style="position: sticky;">My school details</h3>
+			<p>Name: {{persons.name.capitalize}}</p>
+			<p>Class: {{persons.form}}</p>
+			<p>KCPE_Marks: {{persons.kcpe_marks}}</p>
+			<p>KCPE_Year: {{persons.kcpe_year}}</p>
+			<p>School_Password: {{persons.password}}</p>
+			<p>Date_joined: {{persons.joined}}</p>
+		</div>
+	</div>
+</div>
+
+
+
+{% endblock content %}

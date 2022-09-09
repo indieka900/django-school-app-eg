@@ -1,0 +1,13 @@
+{% extends 'dataApp/main.html' %}
+
+{% block content %}
+
+<form method="POST">
+	{% csrf_token %}
+	<span>Are you sure you want to delete {{persons.name}} in this school? </span>
+	<br>
+	<a href="{{request.META.HTTP_REFERER}}">No</a>
+	<input type="submit" value="Yes" />
+</form>
+
+{% endblock content %}

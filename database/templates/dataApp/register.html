@@ -11,7 +11,7 @@
 <body>
 	<p><a href="{% url 'home' %}"><span class="icon"><i class="fas fa-home"></i></span>Home</a></p>
 	<div class="pagel">
-		<form method="POST" action="">
+		<form method="POST" action="" enctype="multipart/form-data">
 			{% csrf_token %}
 			<div class="tittle">
 				<center><h3 class="studi">STUDENT'S <br> REGISTRATION FORM</h3></center>
