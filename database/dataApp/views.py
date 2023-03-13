@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect
 from .models import Student
-from .forms import StudentForm
+from .forms import StudentForm,UpdateForm
+from django.contrib.auth.models import User
 from .filter import Studifilter
 
 
@@ -15,8 +16,13 @@ def register(request):
     if request.method == 'POST':
         form = StudentForm(request.POST, request.FILES)
         if form.is_valid():
-            room = form.save(commit=False)
-            room.save()
+            user = form.save(commit=False)
+            # generate a unique password with 8 characters for the user
+            password = User.objects.make_random_password(length=8)
+            # set the password for the user (without hashing)
+            user.password = password
+            # save the user to the database
+            user.save()
             return redirect('students')
     context = {'form': form}
 
@@ -25,19 +31,7 @@ def register(request):
 def ourList(request):
 	li = []
 	# form = StudentForm(request,['name'])
-	students = Student.objects.order_by('name').values() # you can use all() instead of order_by('id') to retrieve random data
-	#students = Student.objects.filter(name__startswith='J') and many more data retrieval
-	# k = int(Student.objects.all().count())
-	# for i in range(1,k+1):
-	# 	li.append(i)
-	# p = len(li)
-	# if request.method == 'GET':
-	# if form.is_valid():
-	# 	name = form(search_box)
-	# 	search = Student.objects.filter(name__contains='name')
-	# 	context = {'search':search}
-	# 	return render(request, 'dataApp/list.html', context)
-	# else:
+	students = Student.objects.order_by('name').values()
 	students = Student.objects.order_by('name').values()
 	filtered = Studifilter(request.GET, queryset=students)
 	students = filtered.qs
@@ -48,9 +42,9 @@ def ourList(request):
 
 def updateStudi(request, pk):
 	person = Student.objects.get(id=pk)
-	form = StudentForm(instance=person)
+	form = UpdateForm(instance=person)
 	if request.method == 'POST':
-		form = StudentForm(request.POST, request.FILES, instance=person)
+		form = UpdateForm(request.POST, request.FILES, instance=person)
 		if form.is_valid():
 			form.save()
 			return redirect('students')
